@@ -50,11 +50,11 @@
         </dependency>
 
         <!-- 向队列发送消息 -->
-        <dependency>
-            <groupId>com.xinhuanet.mq</groupId>
-            <artifactId>xh-msg-center-sender</artifactId>
-            <version>0.2</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.xinhuanet.mq</groupId>-->
+            <!--<artifactId>xh-msg-center-sender</artifactId>-->
+            <!--<version>0.2</version>-->
+        <!--</dependency>-->
 
         <!-- ftp -->
         <dependency>

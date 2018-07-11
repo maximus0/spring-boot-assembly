@@ -14,10 +14,10 @@
 	</properties>
 
 	<modules>
-		<module>xh-cms-pusher</module>
-		<module>xh-epa</module>
+		<!--<module>xh-cms-pusher</module>-->
+		<!--<module>xh-epa</module>-->
 		<module>spring-boot-rest</module>
-		<module>dir-listener</module>
+		<!--<module>dir-listener</module>-->
 		<module>ftptest</module>
 		<module>spring-boot-freemarker</module>
 		<module>spring-boot-velocity</module>

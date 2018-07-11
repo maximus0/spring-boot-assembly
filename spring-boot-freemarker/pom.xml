@@ -63,11 +63,6 @@
 			<version>4.7.0</version>
 		</dependency>
 
-		<dependency>
-			<groupId>com.xh.solrcloud</groupId>
-			<artifactId>solr4.7-client</artifactId>
-			<version>0.0.8</version>
-		</dependency>
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>

@@ -77,10 +77,19 @@
 			<version>4.7.0</version>
 		</dependency>
 
+
+
+
 		<dependency>
-			<groupId>com.xh.solrcloud</groupId>
-			<artifactId>solr4.7-client</artifactId>
-			<version>0.0.8</version>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.14</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.14</version>
 		</dependency>
 		<!-- Servlet -->
 		<dependency>
