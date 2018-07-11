@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        ">
+
+	<!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
+	<dubbo:consumer timeout="10000" check="false"/>
+	<dubbo:application name="consumer-xh-epa"/>
+
+	<!-- 使用zookeeper广播注册中心暴露发现服务地址 -->
+	<dubbo:registry id="test" protocol="zookeeper"
+					address="192.168.83.251:2181,192.168.83.252:2181,192.168.83.253:2181,192.168.83.254:2181"/>
+	<dubbo:registry id="prd" protocol="zookeeper"
+					address="192.168.75.138:2181,192.168.75.139:2181,192.168.75.140:2181,192.168.75.141:2181,192.168.75.142:2181"/>
+
+	<dubbo:reference id="senderService" interface="com.xinhuanet.mq.service.SenderService" registry="${dubbo.registry}"/>
+
+    <!-- 用户中心 -->
+	<dubbo:reference id="userService" interface="com.xinhuanet.user.dubbo.service.UserService" timeout="50000" protocol="dubbo" registry="${dubbo.user_registry}"/>
+	<!-- 审核平台更新用户名单接口 -->
+	<dubbo:reference id="censorService" interface="com.xinhuanet.censor.api.config.WhitelistService" timeout="50000" protocol="dubbo" registry="${dubbo.registry}"/>
+
+</beans>

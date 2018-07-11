@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+hello $hello
+
+<h1>test velocity</h1>
+<table>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+    </tr>
+
+    #foreach($map in $list)
+    <tr>
+        <td>$map.a</td>
+        <td>$map.b</td>
+        <td>$map.c</td>
+        <td>$map.d</td>
+        <td>$map.e</td>
+    </tr>
+    #end
+</table>
+</body>
+</html>

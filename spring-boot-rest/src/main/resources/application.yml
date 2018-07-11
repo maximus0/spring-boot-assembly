@@ -1,0 +1,41 @@
+#YAML配置文件 注意每一组参数中同一级别的参数必须对齐
+#server 配置
+server:
+    port: 8080
+
+
+content:
+    hello: hello world by yml test random value -->  ${random.value}
+
+# List 和 Map 配置
+testdata:
+    servers:
+       - dev.bar.com
+       - foo.bar.com
+    urls:
+        address: loalhost
+        port: ${random.int}
+    hello: lalal
+
+
+#针对不同环境配置 下面参数会覆盖上面已有的参数 可以在启动时传入参数覆盖此配置   --spring.profiles.active=production
+spring.profiles.active: develop
+
+---
+spring.profiles: develop
+config:
+    hello: The current application  profile is develop
+testdata:
+    hello: profile develop  rewrite parameter hello
+
+---
+spring.profiles: test
+
+config:
+    hello: The current application  profile is test
+
+---
+spring.profiles: production
+
+config:
+    hello: The current application  profile is production

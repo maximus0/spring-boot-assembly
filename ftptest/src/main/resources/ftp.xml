@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:int-ftp="http://www.springframework.org/schema/integration/ftp"
+       xsi:schemaLocation="http://www.springframework.org/schema/integration/ftp http://www.springframework.org/schema/integration/ftp/spring-integration-ftp.xsd
+                http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+                http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="ftpClientFactory"
+          class="org.springframework.integration.ftp.session.DefaultFtpSessionFactory">
+        <property name="host" value="${cmsftp.host}"/>
+        <property name="port" value="21"/>
+        <property name="username" value="${cmsftp.username}"/>
+        <property name="password" value="${cmsftp.password}"/>
+        <!-- 改为PASV模式，以支持docker中连接ftp -->
+        <property name="clientMode" value="2"/>
+        <property name="fileType" value="2"/>
+        <property name="bufferSize" value="100000"/>
+    </bean>
+
+    <int:channel id="ftpChannelXmlContent"/>
+
+    <int-ftp:outbound-channel-adapter id="ftpOutboundXmlContent"
+                                      channel="ftpChannelXmlContent"
+                                      remote-directory="${cmsftp.blog.path.content}"
+                                      session-factory="ftpClientFactory"/>
+
+    <int:channel id="ftpChannelXmlInfo"/>
+
+    <int-ftp:outbound-channel-adapter id="ftpOutboundXmlInfo"
+                                      channel="ftpChannelXmlInfo"
+                                      remote-directory="${cmsftp.blog.path.info}"
+                                      session-factory="ftpClientFactory"/>
+
+    <int:channel id="ftpChannelCnmlContent"/>
+
+    <int-ftp:outbound-channel-adapter id="ftpOutboundCnmlContent"
+                                      channel="ftpChannelCnmlContent"
+                                      remote-directory="${cmsftp.blog.path_cnml.content}"
+                                      session-factory="ftpClientFactory"/>
+
+    <int:channel id="ftpChannelCnmlInfo"/>
+
+    <int-ftp:outbound-channel-adapter id="ftpOutboundCnmlInfo"
+                                      channel="ftpChannelCnmlInfo"
+                                      remote-directory="${cmsftp.blog.path_cnml.info}"
+                                      session-factory="ftpClientFactory"/>
+
+</beans>

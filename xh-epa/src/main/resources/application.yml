@@ -1,0 +1,35 @@
+#YAML配置文件 注意每一组参数中同一级别的参数必须对齐
+#server 配置
+server:
+    port: 8080
+
+activeMQ:
+    username: sunfei
+    passwd: 123456
+    queueName: Consumer.user-epa.VirtualTopic.xhGeek.authSystem
+
+
+
+#针对不同环境配置 下面参数会覆盖上面已有的参数 可以在启动时传入参数覆盖此配置   --spring.profiles.active=production
+spring.profiles.active: develop
+
+---
+spring.profiles: develop
+config:
+    hello: The current application  profile is develop
+dubbo:
+    registry: test
+    user_registry: prd
+activeMQ:
+    brokerURL: failover:(tcp://192.168.83.63:61616?wireFormat.maxInactivityDuration=0,tcp://192.168.83.64:61616?wireFormat.maxInactivityDuration=0)&amp;maxReconnectDelay=1000
+
+
+---
+spring.profiles: production
+config:
+    hello: The current application  profile is production
+dubbo:
+    registry: prd
+    user_registry: prd
+activeMQ:
+    brokerURL: activeMQ.brokerURL=failover:(tcp://192.168.83.167:61616?wireFormat.maxInactivityDuration=0,tcp://192.168.83.168:61616?wireFormat.maxInactivityDuration=0,tcp://192.168.83.167:61617?wireFormat.maxInactivityDuration=0,tcp://192.168.83.168:61617?wireFormat.maxInactivityDuration=0)&amp;maxReconnectDelay=1000

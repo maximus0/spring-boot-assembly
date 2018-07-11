@@ -1,0 +1,61 @@
+@charset "utf-8";
+html,body,div,dl,form,h1,h2,h3,h4,h5,h6,ol,p,pre,table,ul,dd,dt,li,a,abbr,b,em,i,img,samp,span,strong,sub,sup,tt,var,input,select{margin:0;padding:0}
+input,img{border:0;outline:none}
+html,body{width:100%;height:100%;overflow:hidden}
+input,select{outline:none}
+/* set image max width to 100% */
+img,video{max-width:100%;height:auto;width:auto\9;/* ie8 */}
+/* set html5 elements to block */
+body{font-family: 'Helvetica', 'Microsoft YaHei', '微软雅黑', 'STHeiti', 'WenQuanYi Micro Hei', 'SimSun', 'sans-serif';color:#2d2d2d;word-wrap:break-word;word-break:break-all;height:100%;}
+body div,body p{margin:0 auto;word-break:normal;}
+address,cite,dfn,em,var{font-style:normal}
+sup{vertical-align:text-top}
+sub{vertical-align:text-bottom}
+a{color:#026acb;text-decoration:none;outline:none}
+a:hover{text-decoration:none}
+/* list */
+ul,ol{list-style:none;}
+
+#showResult{background: url("../images/up_bg.jpg") no-repeat top left/100% 100%;width: 600px;height: 100%;position: relative;}
+#up_img{position: relative;top: 12%;background: url("../images/ybs_up2.jpg") no-repeat top left/100% 100%;height: 400px;}
+#changeAvatar{position: relative;top: 23%;}
+#changeAvatar img{position: absolute;left: 155px;width: 50px;border-radius: 50%;top: 70px;}
+#showEdit{display: none;width:600px;height: 300px;position: absolute;z-index: 9;top: 0px;}
+#image{width: 178px;height: 40px;opacity: 0;position: absolute;cursor: pointer;}
+#up_bt{position: relative;width: 82%;top: 5%;display: none;}
+#up_sc{position: relative;width: 28%;top: 10%;}
+#up_share{position: relative;width: 48%;top: 16%;cursor: pointer;display: none;}
+#up_return{position: relative;width: 48%;top: 20%;cursor: pointer;display: none;}
+#yesAndNo{width:100%;position: absolute;bottom:10px;left:0px;}
+
+/*媒体查询*/
+@media screen and (max-width:1000px){
+	#ewm{display: none;}
+}
+/*mob iphone6s*/
+@media screen and (max-width:600px){
+	body{background-size:100% 100%}
+	#showResult{width: 100%;}
+	#showEdit{width: 100%;}
+	#up_img{top: 12%;height: 300px;width: 100%;}
+	.ybs_bt{width: 100%;}
+	#report{height: 300px;}
+	#changeAvatar img{left: 108px;width: 40px;top: 50px;}
+	.cropper-move{height: 300px;}
+}
+/*Android*/
+@media screen and (max-width:375px){
+	#changeAvatar img{left: 100px;top: 55px;width: 35px;}
+}
+/*iphone6*/
+@media screen and (max-width:360px){
+	#changeAvatar img{width: 35px;left: 95px;top: 55px;}
+}
+/*iphone5*/
+@media screen and (max-width:320px){
+	#up_img{height: 270px;}
+	#report{height: 270px;}
+	.cropper-move{height: 274px;}
+	#yesAndNo{bottom: 30px;}
+	#changeAvatar img{left: 85px;width: 30px;top: 50px;}
+}

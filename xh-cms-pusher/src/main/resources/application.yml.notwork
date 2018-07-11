@@ -1,0 +1,58 @@
+
+spring:
+ profiles: dev
+
+logging:
+ logpath: /tmp/xh-cms-pusher1
+
+article:
+ path: /tmp/xh-cms-pusher/article
+ imgDirPath: /tmp/xh-cms-pusher/articleImg
+ defaultImg: defaultImg.jpg
+
+dubbo:
+ registry: test
+
+activeMQ:
+ brokerURL: failover:(tcp://192.168.83.63:61616?wireFormat.maxInactivityDuration=0,tcp://192.168.83.64:61617?wireFormat.maxInactivityDuration=0)&amp;maxReconnectDelay=1000
+ username: sunfei
+ passwd: 123456
+ queueName: xhGeek.push-CMS
+
+cmsftp:
+ host: 172.17.26.73
+ username: admin
+ password: xinhua
+ blog:
+  path: /test/blog
+  path_cnml: /test/blog_cnml
+
+---
+
+spring:
+ profiles: prd
+
+logging:
+ logpath: /tmp/xh-cms-pusher2
+
+article:
+ path: /tmp/xh-cms-pusher/article
+ imgDirPath: /tmp/xh-cms-pusher/articleImg
+ defaultImg: defaultImg.jpg
+
+dubbo:
+ registry: prd
+
+activeMQ:
+ brokerURL: failover:(tcp://192.168.83.167:61616?wireFormat.maxInactivityDuration=0,tcp://192.168.83.168:61616?wireFormat.maxInactivityDuration=0,tcp://192.168.83.167:61617?wireFormat.maxInactivityDuration=0,tcp://192.168.83.168:61617?wireFormat.maxInactivityDuration=0)&maxReconnectDelay=1000
+ username: sunfei
+ passwd: 123456
+ queueName: xhGeek.push-CMS
+
+cmsftp:
+ host: 192.168.24.119
+ username: upload
+ password: xinhuaftp
+ blog:
+  path: /files/blog
+  path_cnml: /files/blog_cnml
