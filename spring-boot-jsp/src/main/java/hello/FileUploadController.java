@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import javax.naming.Context;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.FileWriter;
@@ -43,6 +44,7 @@ public class FileUploadController {
             if (null != list && list.size() > 0) {
                 for (int i = 0; i < list.size(); i++) {
                     String[] str = (String[]) list.get(i);
+                    if(str.length<2) continue;
                     fw.write("BEGIN:VCARD\n" +
                             "VERSION:3.0\n" +
                             "N:" + str[0] + ";;;;\n" +
